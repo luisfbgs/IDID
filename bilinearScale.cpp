@@ -16,10 +16,11 @@ Mat_<unsigned char> bilinearScale(Mat_<unsigned char> img, double scale){
 			int ni = min(i+1, rows-1), nj = min(j+1, cols-1);
 			for(int x1 = x; x1 < min(nrows, nx); x1++){
 				for(int y1 = y; y1 < min(ncols, ny); y1++){
-					//double auxL = double(nx - x1) / (nx - x) * img(i, j) + double(x1 - x) / (nx - x) * img(ni, j);
-					//double auxR = double(nx - x1) / (nx - x) * img(i, nj) + double(x1 - x) / (nx - x) * img(ni, nj);
-					//result(x1, y1) = round(double(ny - y1) / (ny - y) * auxL + double(y1 - y) / (ny - y) * auxR);
-					result(x1, y1) = round(double(ny - y1) / (ny - y) * (nx - x1) / (nx - x) * img(i, j) + double(ny - y1) / (ny - y) * (x1 - x) / (nx - x) * img(ni, j) + double(y1 - y) / (ny - y) * (nx - x1) / (nx - x) * img(i, nj) + double(y1 - y) / (ny - y) * (x1 - x) / (nx - x) * img(ni, nj));
+					result(x1, y1) = round(
+							double(ny - y1) / (ny - y) * (nx - x1) / (nx - x) * img(i, j) +
+						   	double(ny - y1) / (ny - y) * (x1 - x) / (nx - x) * img(ni, j) +
+						   	double(y1 - y) / (ny - y) * (nx - x1) / (nx - x) * img(i, nj) +
+						   	double(y1 - y) / (ny - y) * (x1 - x) / (nx - x) * img(ni, nj));
 				}
 			}
 		}
