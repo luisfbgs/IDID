@@ -142,32 +142,59 @@ IDID.out/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/build
 .PHONY : IDID.out/fast
 
-IDID.o: IDID.cpp.o
+src/interpolations.o: src/interpolations.cpp.o
 
-.PHONY : IDID.o
+.PHONY : src/interpolations.o
 
 # target to build an object file
-IDID.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/IDID.cpp.o
-.PHONY : IDID.cpp.o
+src/interpolations.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/src/interpolations.cpp.o
+.PHONY : src/interpolations.cpp.o
 
-IDID.i: IDID.cpp.i
+src/interpolations.i: src/interpolations.cpp.i
 
-.PHONY : IDID.i
+.PHONY : src/interpolations.i
 
 # target to preprocess a source file
-IDID.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/IDID.cpp.i
-.PHONY : IDID.cpp.i
+src/interpolations.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/src/interpolations.cpp.i
+.PHONY : src/interpolations.cpp.i
 
-IDID.s: IDID.cpp.s
+src/interpolations.s: src/interpolations.cpp.s
 
-.PHONY : IDID.s
+.PHONY : src/interpolations.s
 
 # target to generate assembly for a file
-IDID.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/IDID.cpp.s
-.PHONY : IDID.cpp.s
+src/interpolations.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/src/interpolations.cpp.s
+.PHONY : src/interpolations.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -178,9 +205,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... IDID.out"
-	@echo "... IDID.o"
-	@echo "... IDID.i"
-	@echo "... IDID.s"
+	@echo "... src/interpolations.o"
+	@echo "... src/interpolations.i"
+	@echo "... src/interpolations.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
