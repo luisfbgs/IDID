@@ -26,14 +26,14 @@ Mat_<double> bilinearMat(int rows, int cols, int nrows, int ncols){
 			}
 		}
 	}
-	return H;
+	return H.clone();
 }
 
-Mat_<unsigned char> bilinearScale(const Mat_<unsigned char> &img, double scale){
+Mat_<uchar> bilinearScale(const Mat_<uchar> &img, double scale){
 	int rows = img.rows;
 	int cols = img.cols;
 	int nrows = rows * scale, ncols = cols * scale;
-	Mat_<unsigned char> result(nrows, ncols);
+	Mat_<uchar> result(nrows, ncols);
 	for(int i = 0; i < rows; i++){
 		for(int j = 0; j < cols; j++){
 			int x = (.5 + i) * scale + .5, y = (.5 + j) * scale + .5;
@@ -51,5 +51,5 @@ Mat_<unsigned char> bilinearScale(const Mat_<unsigned char> &img, double scale){
 			}
 		}
 	}
-	return result;
+	return result.clone();
 }

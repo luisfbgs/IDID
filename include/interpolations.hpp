@@ -7,6 +7,6 @@ using namespace cv;
 
 Mat_<double> bilinearMat(int rows, int cols, int nrows, int ncols);
 
-Mat_<unsigned char> bilinearScale(const Mat_<unsigned char> &img, double scale);
+Mat_<uchar> bilinearScale(const Mat_<uchar> &img, double scale);
 
 #endif
