@@ -23,36 +23,43 @@ Mat_<T> columnMat(const Mat_<T> &m){
 	return column.clone();
 }
 
-Mat_<uchar> IDID(const Mat_<uchar> &image, double scale, InterpolationFlags interpolation = INTER_LINEAR_EXACT, const Mat_<uchar> &outBlock = Mat_<uchar>(0, 0)){
+Mat_<uchar> IDID(const Mat_<uchar> &image, double scale, Itp interpolation = Itp::bilinear){
 	int rows = max(1., image.rows / scale);
 	int cols = max(1., image.cols / scale);
 	Mat_<double> H;
-	switch(INTER_LINEAR_EXACT){
+	switch(interpolation){
 		default:
 			H = bilinearMat(rows, cols, image.rows, image.cols);
 	}
+
 	Mat_<double> HT;
 	Mat_<double> Y = columnMat<uchar>(image);
 	transpose(H, HT);
 	Mat_<double> HHT = HT * H;
 	Mat_<double> iv = HHT.inv();
-	iv = iv * HT;
-	Mat_<double> res = iv * Y;
+	Mat_<double> res = iv * HT * Y;
 
 	Mat_<uchar> newImg(rows, cols);
 	int id = 0;
 	for(int i = 0; i < rows; i++){
 		for(int j = 0; j < cols; j++){
-			newImg(i, j) = min(255, (int)round(res(id++, 0)));
+			newImg(i, j) = min(255, (int)round(res(id, 0)));
+			id++;
 		}
 	}
 	return newImg.clone();
 }
 
 Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
-	int sz = 16;
+	int sz = ceil(scale);
 	Mat_<uchar> result(img.rows, img.cols);
-	int lstx = 0, lsty = 0;
+	Mat_<uchar> results(img.rows, img.cols);
+	Mat_<bool> mark(img.rows, img.cols);
+	result = 0;
+	results = 0;
+	mark = 0;
+	int lstx, lsty;
+	lstx = lsty = 0;
 	for(int i = 0; i < img.rows; i += sz){
 		int stepx = 0;
 		lsty = 0;
@@ -60,9 +67,7 @@ Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
 			int rows = min(sz, img.rows - i);
 			int cols = min(sz, img.cols - j);
 			Mat_<uchar> block = Mat_<uchar>(rows, cols);
-			int oRows = rows + (i != 0) + (rows + i < img.rows);
-			int oCols = cols + (j != 0) + (cols + j < img.cols);
-			Mat_<uchar> outBlock(oRows, oCols);
+
 			int bX = 0, bY = 0; 
 			for(int x = i; x < i + rows; x++){
 				for(int y = j; y < j + cols; y++){
@@ -72,23 +77,15 @@ Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
 				bX++;
 				bY = 0;
 			}
-
-			bX = bY = 0; 
-			for(int x = max(0, i-1); x < i + oRows; x++){
-				for(int y = j; y < j + oCols; y++){
-					outBlock(bX, bY) = img(x, y);
-					bY++;
-				}
-				bX++;
-				bY = 0;
-			}
-
-			block = IDID(block, scale, INTER_LINEAR_EXACT, outBlock);
+			block = IDID(block, scale, Itp::bilinear);
 			
 			int rx = lstx, ry = lsty;	
 			for(int x = 0; x < block.rows; x++){
 				for(int y = 0; y < block.cols; y++){
-					result(rx, ry) = block(x, y);
+					if(rx < result.rows && ry < result.cols && !mark(rx, ry)){
+						result(rx, ry) = block(x, y);
+						mark(rx, ry) = 1;
+					}
 					ry++;
 				}
 				rx++;
@@ -103,13 +100,57 @@ Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
 	return result(cropR).clone();
 }
 
+double getPSNR(const Mat_<uchar> &image, const Mat_<uchar> &res){
+	double MSE = 0;
+	for(int i = 0; i < res.rows; i++){
+		for(int j = 0; j < res.cols; j++){
+			double d = res(i, j) - image(i, j);
+			MSE += d * d;
+		}
+	}
+	MSE /= res.rows * res.cols;
+	return 20 * log10(255) - 10 * log10(MSE);
+}
+
 int main(){
-	Mat_<uchar> image;
-	image = imread("miniLenna.png", 0);
-	//imwrite("B.png", bilinearScale(IDID(image, 5), 5));
-	Mat_<uchar> res = bilinearScale(splitIDID(image, 2), 2);
-	imwrite("C.png", res);
-	res = splitIDID(image, 2);
-	imwrite("D.png", res);
+	int n;
+	scanf("%d", &n);
+	for(int i = 0; i < n; i++){
+		Mat_<uchar> image;
+		char name[50], dir[250];
+		scanf("%s", name);
+		sprintf(dir, "%s%s", "testimages/", name);
+		image = imread(dir, 0);
+		
+		Mat_<uchar> res = directDownsample(image, 4);
+		sprintf(dir, "%s%d%s", "DIRECT/", 4, name);
+		imwrite(dir, res);
+		sprintf(dir, "%s%d%c%s", "DIRECT/", 4, 'U', name);
+		res = bilinearScale(res, 4);
+		imwrite(dir, res);
+		printf("Direct Bilinear 4x %s PSRN: %lf\n", name, getPSNR(image, res));
+
+		res = splitIDID(image, 4);
+		sprintf(dir, "%s%d%s", "SIDIDBi/", 4, name);
+		imwrite(dir, res);
+		sprintf(dir, "%s%d%s%s", "SIDIDBi/", 4, "U", name);
+		res = bilinearScale(res, 4);
+		imwrite(dir, res);
+		printf("IDID Bilinear 4x %s PSRN: %lf\n\n", name, getPSNR(image, res));
+	}
+	return 0;
+	/*
+	res = IDID(image, 4);
+	imwrite("miniLenaBiIDID4.png", res);
+	res = directDownsample(image, 4);
+	imwrite("miniLenaBiDi4.png", res);
+
+	res = splitIDID(image, 3);
+	imwrite("miniLenaBiSIDID3.png", res);
+	res = IDID(image, 3);
+	imwrite("miniLenaBiIDID3.png", res);
+	res = directDownsample(image, 3);
+	imwrite("miniLenaBiDi3.png", res);
+	*/
 	return 0;
 }

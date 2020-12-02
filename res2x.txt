@@ -1,0 +1,27 @@
+Direct Bilinear 2x apples.png PSRN: 34.537318
+IDID Bilinear 2x apples.png PSRN: 37.446635
+
+Direct Bilinear 2x almonds.png PSRN: 26.335786
+IDID Bilinear 2x almonds.png PSRN: 28.580068
+
+Direct Bilinear 2x baloons.png PSRN: 31.033214
+IDID Bilinear 2x baloons.png PSRN: 34.698906
+
+Direct Bilinear 2x couple.png PSRN: 29.611869
+IDID Bilinear 2x couple.png PSRN: 31.553434
+
+Direct Bilinear 2x lion.png PSRN: 27.151822
+IDID Bilinear 2x lion.png PSRN: 28.982097
+
+Direct Bilinear 2x tomatoes.png PSRN: 32.905516
+IDID Bilinear 2x tomatoes.png PSRN: 37.515335
+
+Direct Bilinear 2x boat.png PSRN: 27.106998
+IDID Bilinear 2x boat.png PSRN: 29.057753
+
+Direct Bilinear 2x lena.png PSRN: 31.147292
+IDID Bilinear 2x lena.png PSRN: 33.776327
+
+Direct Bilinear 2x wood.png PSRN: 33.121122
+IDID Bilinear 2x wood.png PSRN: 36.086466
+

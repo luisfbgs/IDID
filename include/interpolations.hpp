@@ -5,6 +5,11 @@
 
 using namespace cv;
 
+enum Itp {
+	bilinear,
+	bicubic
+};
+
 Mat_<double> bilinearMat(int rows, int cols, int nrows, int ncols);
 
 Mat_<uchar> bilinearScale(const Mat_<uchar> &img, double scale);
