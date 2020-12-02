@@ -1,4 +1,7 @@
-9
+12
+1.png
+8.png
+9.png
 apples.png
 almonds.png
 baloons.png

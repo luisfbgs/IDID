@@ -7,7 +7,7 @@ using namespace std;
 
 Mat_<uchar> directDownsample(const Mat_<uchar> &img, double scale){
 	Mat_<uchar> result;
-	resize(img, result, Size(), 1 / scale, 1 / scale, INTER_NEAREST);
+	resize(img, result, Size(), 1 / scale, 1 / scale, INTER_NEAREST_EXACT);
 	return result.clone();
 }
 
@@ -51,13 +51,9 @@ Mat_<uchar> IDID(const Mat_<uchar> &image, double scale, Itp interpolation = Itp
 }
 
 Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
-	int sz = ceil(scale);
+	int sz = 16;
 	Mat_<uchar> result(img.rows, img.cols);
-	Mat_<uchar> results(img.rows, img.cols);
-	Mat_<bool> mark(img.rows, img.cols);
 	result = 0;
-	results = 0;
-	mark = 0;
 	int lstx, lsty;
 	lstx = lsty = 0;
 	for(int i = 0; i < img.rows; i += sz){
@@ -82,10 +78,7 @@ Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
 			int rx = lstx, ry = lsty;	
 			for(int x = 0; x < block.rows; x++){
 				for(int y = 0; y < block.cols; y++){
-					if(rx < result.rows && ry < result.cols && !mark(rx, ry)){
-						result(rx, ry) = block(x, y);
-						mark(rx, ry) = 1;
-					}
+					result(rx, ry) = block(x, y);
 					ry++;
 				}
 				rx++;
@@ -100,7 +93,7 @@ Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
 	return result(cropR).clone();
 }
 
-double getPSNR(const Mat_<uchar> &image, const Mat_<uchar> &res){
+double getPSNR(Mat_<uchar> &image, Mat_<uchar> &res){
 	double MSE = 0;
 	for(int i = 0; i < res.rows; i++){
 		for(int j = 0; j < res.cols; j++){
@@ -122,35 +115,22 @@ int main(){
 		sprintf(dir, "%s%s", "testimages/", name);
 		image = imread(dir, 0);
 		
-		Mat_<uchar> res = directDownsample(image, 4);
-		sprintf(dir, "%s%d%s", "DIRECT/", 4, name);
+		Mat_<uchar> res = directDownsample(image, 2);
+		sprintf(dir, "%s%d%s", "DIRECT/", 2, name);
 		imwrite(dir, res);
-		sprintf(dir, "%s%d%c%s", "DIRECT/", 4, 'U', name);
-		res = bilinearScale(res, 4);
+		sprintf(dir, "%s%d%c%s", "DIRECT/", 2, 'U', name);
+		res = bilinearScale(res, 2);
 		imwrite(dir, res);
-		printf("Direct Bilinear 4x %s PSRN: %lf\n", name, getPSNR(image, res));
+		printf("Direct Bilinear 2x %s PSRN: %lf\n", name, getPSNR(image, res));
 
-		res = splitIDID(image, 4);
-		sprintf(dir, "%s%d%s", "SIDIDBi/", 4, name);
+		res = splitIDID(image, 2);
+		sprintf(dir, "%s%d%s", "SIDIDBi/", 2, name);
 		imwrite(dir, res);
-		sprintf(dir, "%s%d%s%s", "SIDIDBi/", 4, "U", name);
-		res = bilinearScale(res, 4);
+		sprintf(dir, "%s%d%s%s", "SIDIDBi/", 2, "U", name);
+		res = bilinearScale(res, 2);
+		sprintf(dir, "%s%d%s%s", "SIDIDBi/", 2, "U", name);
 		imwrite(dir, res);
-		printf("IDID Bilinear 4x %s PSRN: %lf\n\n", name, getPSNR(image, res));
+		printf("IDID Bilinear 2x %s PSRN: %lf\n\n", name, getPSNR(image, res));
 	}
-	return 0;
-	/*
-	res = IDID(image, 4);
-	imwrite("miniLenaBiIDID4.png", res);
-	res = directDownsample(image, 4);
-	imwrite("miniLenaBiDi4.png", res);
-
-	res = splitIDID(image, 3);
-	imwrite("miniLenaBiSIDID3.png", res);
-	res = IDID(image, 3);
-	imwrite("miniLenaBiIDID3.png", res);
-	res = directDownsample(image, 3);
-	imwrite("miniLenaBiDi3.png", res);
-	*/
 	return 0;
 }

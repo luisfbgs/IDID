@@ -1,27 +1,36 @@
-Direct Bilinear 4x apples.png PSRN: 27.778633
-IDID Bilinear 4x apples.png PSRN: 32.057702
+Direct Bilinear 4x 1.png PSRN: 22.138503
+IDID Bilinear 4x 1.png PSRN: 23.062024
 
-Direct Bilinear 4x almonds.png PSRN: 20.278071
-IDID Bilinear 4x almonds.png PSRN: 23.305648
+Direct Bilinear 4x 8.png PSRN: 26.499163
+IDID Bilinear 4x 8.png PSRN: 26.123398
 
-Direct Bilinear 4x baloons.png PSRN: 23.746405
-IDID Bilinear 4x baloons.png PSRN: 28.124154
+Direct Bilinear 4x 9.png PSRN: 22.983562
+IDID Bilinear 4x 9.png PSRN: 23.710393
 
-Direct Bilinear 4x couple.png PSRN: 24.631267
-IDID Bilinear 4x couple.png PSRN: 27.558664
+Direct Bilinear 4x apples.png PSRN: 31.349077
+IDID Bilinear 4x apples.png PSRN: 26.972235
 
-Direct Bilinear 4x lion.png PSRN: 21.058798
-IDID Bilinear 4x lion.png PSRN: 23.712257
+Direct Bilinear 4x almonds.png PSRN: 22.896053
+IDID Bilinear 4x almonds.png PSRN: 19.732426
 
-Direct Bilinear 4x tomatoes.png PSRN: 25.054185
-IDID Bilinear 4x tomatoes.png PSRN: 30.460999
+Direct Bilinear 4x baloons.png PSRN: 27.562100
+IDID Bilinear 4x baloons.png PSRN: 23.131244
 
-Direct Bilinear 4x boat.png PSRN: 22.270522
-IDID Bilinear 4x boat.png PSRN: 25.058365
+Direct Bilinear 4x couple.png PSRN: 26.747588
+IDID Bilinear 4x couple.png PSRN: 16.099413
 
-Direct Bilinear 4x lena.png PSRN: 25.274599
-IDID Bilinear 4x lena.png PSRN: 28.906648
+Direct Bilinear 4x lion.png PSRN: 23.282336
+IDID Bilinear 4x lion.png PSRN: 17.816396
 
-Direct Bilinear 4x wood.png PSRN: 26.438296
-IDID Bilinear 4x wood.png PSRN: 30.330960
+Direct Bilinear 4x tomatoes.png PSRN: 30.156877
+IDID Bilinear 4x tomatoes.png PSRN: 17.748820
+
+Direct Bilinear 4x boat.png PSRN: 24.156291
+IDID Bilinear 4x boat.png PSRN: 23.574696
+
+Direct Bilinear 4x lena.png PSRN: 28.209659
+IDID Bilinear 4x lena.png PSRN: 28.505762
+
+Direct Bilinear 4x wood.png PSRN: 29.881711
+IDID Bilinear 4x wood.png PSRN: 20.478060
 
