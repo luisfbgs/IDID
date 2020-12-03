@@ -1,36 +1,36 @@
-Direct Bilinear 4x 1.png PSRN: 22.138503
-IDID Bilinear 4x 1.png PSRN: 23.062024
+Direct 4x apples.png PSRN: 32.421809
+IDID Bilinear 4x apples.png PSRN: 31.708128
 
-Direct Bilinear 4x 8.png PSRN: 26.499163
-IDID Bilinear 4x 8.png PSRN: 26.123398
+Direct 4x marta.png PSRN: 23.068080
+IDID Bilinear 4x marta.png PSRN: 23.272261
 
-Direct Bilinear 4x 9.png PSRN: 22.983562
-IDID Bilinear 4x 9.png PSRN: 23.710393
+Direct 4x cat.png PSRN: 27.297122
+IDID Bilinear 4x cat.png PSRN: 27.438667
 
-Direct Bilinear 4x apples.png PSRN: 31.349077
-IDID Bilinear 4x apples.png PSRN: 26.972235
+Direct 4x garca.png PSRN: 23.824228
+IDID Bilinear 4x garca.png PSRN: 24.018920
 
-Direct Bilinear 4x almonds.png PSRN: 22.896053
-IDID Bilinear 4x almonds.png PSRN: 19.732426
+Direct 4x almonds.png PSRN: 23.631392
+IDID Bilinear 4x almonds.png PSRN: 23.658694
 
-Direct Bilinear 4x baloons.png PSRN: 27.562100
-IDID Bilinear 4x baloons.png PSRN: 23.131244
+Direct 4x baloons.png PSRN: 28.610210
+IDID Bilinear 4x baloons.png PSRN: 28.034039
 
-Direct Bilinear 4x couple.png PSRN: 26.747588
-IDID Bilinear 4x couple.png PSRN: 16.099413
+Direct 4x lion.png PSRN: 23.950900
+IDID Bilinear 4x lion.png PSRN: 23.952511
 
-Direct Bilinear 4x lion.png PSRN: 23.282336
-IDID Bilinear 4x lion.png PSRN: 17.816396
+Direct 4x tomatoes.png PSRN: 31.680989
+IDID Bilinear 4x tomatoes.png PSRN: 29.879978
 
-Direct Bilinear 4x tomatoes.png PSRN: 30.156877
-IDID Bilinear 4x tomatoes.png PSRN: 17.748820
+Direct 4x couple.png PSRN: 27.370482
+IDID Bilinear 4x couple.png PSRN: 27.737382
 
-Direct Bilinear 4x boat.png PSRN: 24.156291
-IDID Bilinear 4x boat.png PSRN: 23.574696
+Direct 4x boat.png PSRN: 25.000163
+IDID Bilinear 4x boat.png PSRN: 25.167053
 
-Direct Bilinear 4x lena.png PSRN: 28.209659
-IDID Bilinear 4x lena.png PSRN: 28.505762
+Direct 4x lena.png PSRN: 29.151677
+IDID Bilinear 4x lena.png PSRN: 28.833023
 
-Direct Bilinear 4x wood.png PSRN: 29.881711
-IDID Bilinear 4x wood.png PSRN: 20.478060
+Direct 4x wood.png PSRN: 30.844114
+IDID Bilinear 4x wood.png PSRN: 30.024274
 

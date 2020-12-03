@@ -1,13 +1,13 @@
 12
-1.png
-8.png
-9.png
 apples.png
+marta.png
+cat.png
+garca.png
 almonds.png
 baloons.png
-couple.png
 lion.png
 tomatoes.png
+couple.png
 boat.png
 lena.png
 wood.png
