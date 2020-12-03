@@ -142,6 +142,33 @@ IDID.out/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/build
 .PHONY : IDID.out/fast
 
+src/IDID.o: src/IDID.cpp.o
+
+.PHONY : src/IDID.o
+
+# target to build an object file
+src/IDID.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/src/IDID.cpp.o
+.PHONY : src/IDID.cpp.o
+
+src/IDID.i: src/IDID.cpp.i
+
+.PHONY : src/IDID.i
+
+# target to preprocess a source file
+src/IDID.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/src/IDID.cpp.i
+.PHONY : src/IDID.cpp.i
+
+src/IDID.s: src/IDID.cpp.s
+
+.PHONY : src/IDID.s
+
+# target to generate assembly for a file
+src/IDID.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IDID.out.dir/build.make CMakeFiles/IDID.out.dir/src/IDID.cpp.s
+.PHONY : src/IDID.cpp.s
+
 src/interpolations.o: src/interpolations.cpp.o
 
 .PHONY : src/interpolations.o
@@ -205,6 +232,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... IDID.out"
+	@echo "... src/IDID.o"
+	@echo "... src/IDID.i"
+	@echo "... src/IDID.s"
 	@echo "... src/interpolations.o"
 	@echo "... src/interpolations.i"
 	@echo "... src/interpolations.s"

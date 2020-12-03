@@ -57,3 +57,10 @@ Mat_<uchar> bilinearScale(const Mat_<uchar> &img, double scale){
 	}
 	return result.clone();
 }
+
+
+Mat_<uchar> directDownsample(const Mat_<uchar> &img, double scale){
+	Mat_<uchar> result;
+	resize(img, result, Size(), 1 / scale, 1 / scale, INTER_LINEAR_EXACT);
+	return result.clone();
+}
