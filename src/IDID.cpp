@@ -18,7 +18,7 @@ Mat_<T> columnMat(const Mat_<T> &m){
 	return column.clone();
 }
 
-Mat_<uchar> IDID(const Mat_<uchar> &image, double scale, Itp interpolation = Itp::bilinear){
+Mat_<uchar> IDID(const Mat_<uchar> &image, double scale, Itp interpolation){
 	int rows = max(1., image.rows / scale);
 	int cols = max(1., image.cols / scale);
 	Mat_<double> H;
@@ -26,9 +26,8 @@ Mat_<uchar> IDID(const Mat_<uchar> &image, double scale, Itp interpolation = Itp
 		default:
 			H = bilinearMat(rows, cols, image.rows, image.cols);
 	}
-
+	Mat_<double> Y = columnMat<uchar>(image);
 	Mat_<double> HT;
-	Mat_<double> Y = columnMat<int>(image);
 	transpose(H, HT);
 	Mat_<double> HHT = HT * H;
 	Mat_<double> iv = HHT.inv();
@@ -46,7 +45,7 @@ Mat_<uchar> IDID(const Mat_<uchar> &image, double scale, Itp interpolation = Itp
 }
 
 Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
-	int sz = 16;
+	int sz = 32;
 	Mat_<uchar> result(img.rows, img.cols);
 	result = 0;
 	int lstx, lsty;
@@ -84,6 +83,6 @@ Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
 		}
 		lstx += stepx;
 	}
-	Rect cropR(0, 0, lstx, lsty);
+	Rect cropR(0, 0, lsty, lstx);
 	return result(cropR).clone();
 }
