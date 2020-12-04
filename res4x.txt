@@ -1,36 +1,60 @@
-Direct 4x apples.png PSRN: 32.421809
-IDID Bilinear 4x apples.png PSRN: 31.708128
+Direct 4x DL apples.png PSRN: 32.323626
+Direct 4x DC apples.png PSRN: 32.632572
+IDID Bilinear 4x IL apples.png PSRN: 32.641731
+IDID Bilinear 4x IC apples.png PSRN: 32.846039
 
-Direct 4x marta.png PSRN: 23.068080
-IDID Bilinear 4x marta.png PSRN: 23.272261
+Direct 4x DL marta.png PSRN: 22.527409
+Direct 4x DC marta.png PSRN: 22.177075
+IDID Bilinear 4x IL marta.png PSRN: 23.503743
+IDID Bilinear 4x IC marta.png PSRN: 23.533741
 
-Direct 4x cat.png PSRN: 27.297122
-IDID Bilinear 4x cat.png PSRN: 27.438667
+Direct 4x DL cat.png PSRN: 27.006138
+Direct 4x DC cat.png PSRN: 26.885098
+IDID Bilinear 4x IL cat.png PSRN: 27.847722
+IDID Bilinear 4x IC cat.png PSRN: 27.940719
 
-Direct 4x garca.png PSRN: 23.824228
-IDID Bilinear 4x garca.png PSRN: 24.018920
+Direct 4x DL garca.png PSRN: 23.554811
+Direct 4x DC garca.png PSRN: 23.444033
+IDID Bilinear 4x IL garca.png PSRN: 24.333623
+IDID Bilinear 4x IC garca.png PSRN: 24.424396
 
-Direct 4x almonds.png PSRN: 23.631392
-IDID Bilinear 4x almonds.png PSRN: 23.658694
+Direct 4x DL almonds.png PSRN: 23.488107
+Direct 4x DC almonds.png PSRN: 23.703617
+IDID Bilinear 4x IL almonds.png PSRN: 24.315664
+IDID Bilinear 4x IC almonds.png PSRN: 24.478890
 
-Direct 4x baloons.png PSRN: 28.610210
-IDID Bilinear 4x baloons.png PSRN: 28.034039
+Direct 4x DL baloons.png PSRN: 28.624236
+Direct 4x DC baloons.png PSRN: 29.289709
+IDID Bilinear 4x IL baloons.png PSRN: 28.991479
+IDID Bilinear 4x IC baloons.png PSRN: 29.259843
 
-Direct 4x lion.png PSRN: 23.950900
-IDID Bilinear 4x lion.png PSRN: 23.952511
+Direct 4x DL lion.png PSRN: 23.778025
+Direct 4x DC lion.png PSRN: 23.942400
+IDID Bilinear 4x IL lion.png PSRN: 24.501385
+IDID Bilinear 4x IC lion.png PSRN: 24.778225
 
-Direct 4x tomatoes.png PSRN: 31.680989
-IDID Bilinear 4x tomatoes.png PSRN: 29.879978
+Direct 4x DL tomatoes.png PSRN: 31.717553
+Direct 4x DC tomatoes.png PSRN: 32.524971
+IDID Bilinear 4x IL tomatoes.png PSRN: 31.219905
+IDID Bilinear 4x IC tomatoes.png PSRN: 31.672346
 
-Direct 4x couple.png PSRN: 27.370482
-IDID Bilinear 4x couple.png PSRN: 27.737382
+Direct 4x DL couple.png PSRN: 26.957666
+Direct 4x DC couple.png PSRN: 26.728876
+IDID Bilinear 4x IL couple.png PSRN: 28.131413
+IDID Bilinear 4x IC couple.png PSRN: 28.226544
 
-Direct 4x boat.png PSRN: 25.000163
-IDID Bilinear 4x boat.png PSRN: 25.167053
+Direct 4x DL boat.png PSRN: 24.695078
+Direct 4x DC boat.png PSRN: 24.520791
+IDID Bilinear 4x IL boat.png PSRN: 25.521458
+IDID Bilinear 4x IC boat.png PSRN: 25.562937
 
-Direct 4x lena.png PSRN: 29.151677
-IDID Bilinear 4x lena.png PSRN: 28.833023
+Direct 4x DL lena.png PSRN: 28.979701
+Direct 4x DC lena.png PSRN: 29.103945
+IDID Bilinear 4x IL lena.png PSRN: 29.507730
+IDID Bilinear 4x IC lena.png PSRN: 29.574048
 
-Direct 4x wood.png PSRN: 30.844114
-IDID Bilinear 4x wood.png PSRN: 30.024274
+Direct 4x DL wood.png PSRN: 30.799637
+Direct 4x DC wood.png PSRN: 31.255091
+IDID Bilinear 4x IL wood.png PSRN: 30.920524
+IDID Bilinear 4x IC wood.png PSRN: 31.223760
 

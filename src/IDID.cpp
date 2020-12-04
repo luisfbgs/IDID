@@ -23,6 +23,9 @@ Mat_<uchar> IDID(const Mat_<uchar> &image, double scale, Itp interpolation){
 	int cols = max(1., image.cols / scale);
 	Mat_<double> H;
 	switch(interpolation){
+		case(Itp::bicubic):
+			H = bicubicMat(rows, cols, image.rows, image.cols);
+			break;
 		default:
 			H = bilinearMat(rows, cols, image.rows, image.cols);
 	}
@@ -44,7 +47,7 @@ Mat_<uchar> IDID(const Mat_<uchar> &image, double scale, Itp interpolation){
 	return newImg.clone();
 }
 
-Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
+Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale, Itp interpolation){
 	int sz = 32;
 	Mat_<uchar> result(img.rows, img.cols);
 	result = 0;
@@ -67,7 +70,7 @@ Mat_<uchar> splitIDID(const Mat_<uchar> &img, double scale){
 				bX++;
 				bY = 0;
 			}
-			block = IDID(block, scale, Itp::bilinear);
+			block = IDID(block, scale, interpolation);
 			
 			int rx = lstx, ry = lsty;	
 			for(int x = 0; x < block.rows; x++){

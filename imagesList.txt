@@ -11,3 +11,4 @@ couple.png
 boat.png
 lena.png
 wood.png
+odd.jpg

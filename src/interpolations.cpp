@@ -81,6 +81,49 @@ void bicubicCoe(double mat[4][4], double x, double y){
 	mat[3][3] = (+.25 * y2 * x2 - .25 * y3 * x2 - .25 * y2 * x3 + .25 * y3 * x3);
 }
 
+Mat_<double> bicubicMat(int rows, int cols, int nrows, int ncols){
+	Mat_<double> H(nrows * ncols, rows * cols);
+	double scaleX = 1. * nrows / rows, scaleY = 1. * ncols / cols;
+	H = 0;
+	double coe[4][4];
+	int mat[4][4];
+
+	for(int i = 0; i < rows; i++){
+		for(int j = 0; j < cols; j++){
+			double x = (.5 + i) * scaleX, y = (.5 + j) * scaleY;
+			double nx = (.5 + i + 1) * scaleX, ny = (.5 + j + 1) * scaleY;
+			if(!i) x = 0;
+			if(!j) y = 0;
+			
+			int mx = 0, my = 0;
+			for(int a = i-1; a <= i+2; a++){
+				for(int b = j-1; b <= j+2; b++){
+					mat[mx][my] = (a >= 0 && b >= 0 && a < rows && b < cols) ? a * cols + b : i * cols + j;
+					my++;
+				}
+				mx++;
+				my = 0;
+			}
+
+			for(int x1 = x; x1 < min(nrows, (int)ceil(nx)); x1++){
+				for(int y1 = y; y1 < min(ncols, (int)ceil(ny)); y1++){
+					double x2 = x1 + .5, y2 = y1 + .5;
+					int k = x1 * ncols + y1;
+					bicubicCoe(coe, (x2-x) / (nx - x), (y2-y) / (ny - y));
+					for(int a = 0; a < 4; a++){
+						for(int b = 0; b < 4; b++){
+							H(k, mat[a][b]) += coe[a][b];
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return H.clone();
+}
+
+
 Mat_<uchar> bicubicScale(const Mat_<uchar> &img, double scale){
 	int rows = img.rows;
 	int cols = img.cols;
@@ -89,7 +132,6 @@ Mat_<uchar> bicubicScale(const Mat_<uchar> &img, double scale){
 	result = 0;
 	double coe[4][4];
 	double mat[4][4];
-	memset(mat, 0, sizeof mat);
 
 	for(int i = 0; i < rows; i++){
 		for(int j = 0; j < cols; j++){
@@ -134,8 +176,8 @@ Mat_<uchar> bicubicScale(const Mat_<uchar> &img, double scale){
 }
 
 
-Mat_<uchar> directDownsample(const Mat_<uchar> &img, double scale){
+Mat_<uchar> directDownsample(const Mat_<uchar> &img, double scale, InterpolationFlags interpolation){
 	Mat_<uchar> result;
-	resize(img, result, Size(), 1 / scale, 1 / scale, INTER_AREA);
+	resize(img, result, Size(), 1 / scale, 1 / scale, interpolation);
 	return result.clone();
 }
